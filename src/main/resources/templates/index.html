@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
      <title>Eatery Cafe and Restaurant Template</title>
@@ -17,15 +18,15 @@ http://www.templatemo.com/tm-515-eatery
      <meta name="author" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <link rel="stylesheet" href="css/font-awesome.min.css">
-     <link rel="stylesheet" href="css/animate.css">
-     <link rel="stylesheet" href="css/owl.carousel.css">
-     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-     <link rel="stylesheet" href="css/magnific-popup.css">
+     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+     <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+     <link rel="stylesheet" th:href="@{/css/animate.css}">
+     <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+     <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+     <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
 
      <!-- MAIN CSS -->
-     <link rel="stylesheet" href="css/templatemo-style.css">
+     <link rel="stylesheet" th:href="@{/css/templatemo-style.css}">
 
 </head>
 <body>
@@ -528,14 +529,16 @@ http://www.templatemo.com/tm-515-eatery
 
 
      <!-- SCRIPTS -->
-     <script src="js/jquery.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/jquery.stellar.min.js"></script>
-     <script src="js/wow.min.js"></script>
-     <script src="js/owl.carousel.min.js"></script>
-     <script src="js/jquery.magnific-popup.min.js"></script>
-     <script src="js/smoothscroll.js"></script>
-     <script src="js/custom.js"></script>
+
+
+     <script th:src="@{js/jquery.js}"></script>
+     <script th:src="@{js/bootstrap.min.js}"></script>
+     <script th:src="@{js/jquery.stellar.min.js}"></script>
+     <script th:src="@{js/wow.min.js}"></script>
+     <script th:src="@{js/owl.carousel.min.js}"></script>
+     <script th:src="@{js/jquery.magnific-popup.min.js}"></script>
+     <script th:src="@{js/smoothscroll.js}"></script>
+     <script th:src="@{js/custom.js}"></script>
 
 </body>
 </html>
