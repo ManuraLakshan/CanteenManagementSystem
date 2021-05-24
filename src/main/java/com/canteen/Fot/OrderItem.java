@@ -11,7 +11,7 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer order_id;
     private Integer item_id;
-    private Integer cust_id;
+    private String cust_id;
     private Integer order_qunt;
     private String discription;
     private float total;
@@ -33,11 +33,11 @@ public class OrderItem {
         this.item_id = item_id;
     }
 
-    public Integer getCust_id() {
+    public String getCust_id() {
         return cust_id;
     }
 
-    public void setCust_id(Integer cust_id) {
+    public void setCust_id(String cust_id) {
         this.cust_id = cust_id;
     }
 
