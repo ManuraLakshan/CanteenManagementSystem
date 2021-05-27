@@ -19,6 +19,7 @@ public class CanteenOwner {
 
     public void setOwner_id(Integer owner_id) {
         this.owner_id = owner_id;
+
     }
 
     public String getName() {
