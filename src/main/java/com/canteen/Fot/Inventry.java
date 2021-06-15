@@ -16,6 +16,7 @@ public class Inventry {
     private Integer unit_price;
     private Integer fixed_qunt;
     private Integer current_qunt;
+    private String image;
 
     public Integer getInv_id() {
         return inv_id;
@@ -71,5 +72,13 @@ public class Inventry {
 
     public void setCurrent_qunt(Integer current_qunt) {
         this.current_qunt = current_qunt;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
