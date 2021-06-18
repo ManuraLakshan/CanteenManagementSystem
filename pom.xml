@@ -12,7 +12,7 @@
 	<artifactId>Fot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Fot</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Canteen Management System for FOT.UOR</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -46,6 +46,27 @@
 			<artifactId>jna</artifactId>
 			<version>5.5.0</version>
 		</dependency>
+		<!--=================================================-->
+		<!--Sujan - I put this new dependency for our web security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>4.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator-core</artifactId>
+		</dependency>
+		<!--=================================================-->
 	</dependencies>
 
 	<build>
@@ -53,6 +74,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${project.parent.version}</version> <!-- put here this -->
 			</plugin>
 		</plugins>
 	</build>

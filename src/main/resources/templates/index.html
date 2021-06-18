@@ -3,7 +3,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-     <title>Eatery Cafe and Restaurant Template</title>
+     <title>Fot.Canteen</title>
 <!-- 
 
 Eatery Cafe Template 
@@ -24,7 +24,6 @@ http://www.templatemo.com/tm-515-eatery
      <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
      <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
      <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
-
      <!-- MAIN CSS -->
      <link rel="stylesheet" th:href="@{/css/templatemo-style.css}">
 
@@ -53,7 +52,7 @@ http://www.templatemo.com/tm-515-eatery
                     </button>
 
                     <!-- lOGO TEXT HERE -->
-                    <a href="index.html" class="navbar-brand">FOT<span>.</span> Cafe</a>
+                    <a href="index.html" class="navbar-brand">FOT<span>.</span> Canteen</a>
                </div>
 
                <!-- MENU LINKS -->
@@ -64,14 +63,20 @@ http://www.templatemo.com/tm-515-eatery
                          <li><a href="#team" class="smoothScroll">Chef</a></li>
                          <li><a href="#menu" class="smoothScroll">Menu</a></li>
                          <li><a href="#contact" class="smoothScroll">Contact</a></li>
+
+                         <li><a th:href="@{/register}" class="smoothScroll" >Register</a> </li>
+                         <li><a th:href="@{/login}" class="smoothScroll" >Login</a> </li>
+                         <li><a th:href="@{/list_users}" class="smoothScroll" >All Users</a> </li>
                     </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                         <li><a href="#">Call Now! <i class="fa fa-phone"></i> 010 020 0340</a></li>
-                         <a href="#footer" class="section-btn">Reserve a table</a>
-                    </ul>
+                         <div>
+                         <ul class="nav navbar-nav navbar-right">
+                              <li><a href="#">Call Now! <i class="fa fa-phone"></i> 010 020 0340</a></li>
+                              <a href="#footer" class="section-btn">Reserve a table</a>
+                         </ul>
+                    </div>
+
                </div>
-
           </div>
      </section>
 

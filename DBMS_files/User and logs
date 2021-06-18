@@ -1,0 +1,116 @@
+//====================================================
+                TO MANAGING USER LOGS
+//====================================================
+    USE fot;
+
+    mysql> desc users;
+    +------------+-------------+------+-----+---------+----------------+
+    | Field      | Type        | Null | Key | Default | Extra          |
+    +------------+-------------+------+-----+---------+----------------+
+    | id         | bigint(20)  | NO   | PRI | NULL    | auto_increment |
+    | email      | varchar(50) | NO   | UNI | NULL    |                |
+    | first_name | varchar(20) | NO   |     | NULL    |                |
+    | last_name  | varchar(20) | NO   |     | NULL    |                |
+    | password   | varchar(64) | NO   |     | NULL    |                |
+    +------------+-------------+------+-----+---------+----------------+
+    5 rows in set (0.01 sec)
+
+//====================================================
+    01. CREATE LOG TABLE..
+
+    CREATE TABLE users_log(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data VARCHAR(100),
+    user VARCHAR(20),
+    operation VARCHAR(20),
+    changedate DATETIME);
+//====================================================
+
+    02. AFTER REGISTRATION USER DATA RECORD TO THE LOG
+
+    DELIMITER //
+
+    CREATE TRIGGER TR_after_users_insert
+    AFTER INSERT
+    ON users FOR EACH ROW
+    BEGIN
+
+    DECLARE user_data VARCHAR(100);
+    DECLARE user VARCHAR(20);
+    DECLARE operation VARCHAR(20);
+    DECLARE changedate DATETIME;
+
+    SET user_data = CONCAT_WS(',', new.id, new.email, new.first_name ,new.last_name);
+    SET user  = CURRENT_USER;
+    SET operation = 'INSERT';
+    SET changedate = now();
+
+    INSERT INTO users_log(data,user,operation,changedate)values(user_data,user,operation,changedate);
+
+    END//
+    DELIMITER ;
+
+//====================================================
+
+    03. AFTER UPDATE the sql query
+
+    DELIMITER //
+
+    CREATE TRIGGER TR_after_users_update
+    AFTER UPDATE
+    ON users FOR EACH ROW
+    BEGIN
+
+    DECLARE user_data VARCHAR(100);
+    DECLARE user VARCHAR(20);
+    DECLARE operation VARCHAR(20);
+    DECLARE changedate DATETIME;
+
+    SET user_data = CONCAT_WS(',', new.id, new.email, new.first_name ,new.last_name);
+    SET user  = CURRENT_USER;
+    SET operation = 'UPDATE';
+    SET changedate = now();
+
+    INSERT INTO student_log(data,user,operation,changedate)values(user_data,user,operation,changedate);
+
+    END//
+    DELIMITER ;
+
+//====================================================
+
+    04. AFTER DELETING THE USER
+
+    DELIMITER //
+
+    CREATE TRIGGER TR_after_users_delete
+    AFTER DELETE
+    ON users FOR EACH ROW
+    BEGIN
+
+    DECLARE user_data VARCHAR(100);
+    DECLARE user VARCHAR(20);
+    DECLARE operation VARCHAR(20);
+    DECLARE changedate DATETIME;
+
+    SET user_data = CONCAT_WS(',', old.id, old.email, old.first_name ,old.last_name);
+    SET user  = CURRENT_USER;
+    SET operation = 'DELETE';
+    SET changedate = now();
+
+    INSERT INTO student_log(data,user,operation,changedate)values(user_data,user,operation,changedate);
+
+    END//
+    DELIMITER ;
+
+//====================================================
+    SUCCESSFULLY ADDED TRIGGERS FOR HANDLE USER LOGS
+    05. SAMPLE OUTPUT
+
+    mysql> SELECT * FROM users_log;
+    +----+------------------------------+----------------+-----------+---------------------+
+    | id | data                         | user           | operation | changedate          |
+    +----+------------------------------+----------------+-----------+---------------------+
+    |  1 | 6,madhu@gmail.com,Madhu,Shan | root@localhost | INSERT    | 2021-06-19 04:07:44 |
+    +----+------------------------------+----------------+-----------+---------------------+
+    1 row in set (0.00 sec)
+//====================================================
