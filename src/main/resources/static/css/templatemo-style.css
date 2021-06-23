@@ -599,7 +599,8 @@ http://www.templatemo.com/tm-515-eatery
     display: block;
     margin-top: 10px;
   }
-
+  .menu-thumb .menu-info .buy,
+  .menu-thumb .menu-info .quantity,
   .menu-thumb .menu-info h3,
   .menu-thumb .menu-info p,
   .menu-thumb .menu-info span {
@@ -623,7 +624,8 @@ http://www.templatemo.com/tm-515-eatery
     font-weight: bold;
     letter-spacing: 1px;
   }
-
+  .menu-thumb:hover .menu-info .buy,
+  .menu-thumb:hover .menu-info .quantity,
   .menu-thumb:hover .menu-info h3,
   .menu-thumb:hover .menu-info p,
   .menu-thumb:hover .menu-info span {
@@ -634,6 +636,7 @@ http://www.templatemo.com/tm-515-eatery
   .menu-thumb:hover .menu-info {
     background: rgba(0,0,0,0.8);
   }
+
 
 
 

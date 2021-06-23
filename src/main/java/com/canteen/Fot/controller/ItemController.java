@@ -15,10 +15,14 @@ public class ItemController {
     private InventoryService InvenService;
 
     @RequestMapping(path = "")
-    public String getAllStudents(Model model)
+    public String getAllStudents(Model model, String keyword)
     {
-        List<Inventry> inventory = (List<Inventry>) InvenService.getAllStudents();
-        model.addAttribute("listItems",inventory);
+        List<Inventry> inventory = (List<Inventry>) InvenService.getAllitems();
+        if(keyword != null) {
+            model.addAttribute("listItems",InvenService.findByKeyword(keyword) );
+        }else {
+            model.addAttribute("listItems", inventory);
+        }
         return "index";
     }
 

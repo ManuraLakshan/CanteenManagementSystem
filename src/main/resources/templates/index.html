@@ -164,8 +164,8 @@ http://www.templatemo.com/tm-515-eatery
 
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                              <h2>Meet our chefs</h2>
-                              <h4>They are nice &amp; friendly</h4>
+                              <h2>Primary Food Timetable</h2>
+                              <h4>You can chose time perioud and find available primary foods </h4>
                          </div>
                     </div>
 
@@ -238,27 +238,39 @@ http://www.templatemo.com/tm-515-eatery
 
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                              <h2>Our Menus</h2>
-                              <h4>Tea Time &amp; Dining</h4>
+                              <h2>Normal Foods</h2>
+                              <h4>Tea Time Foods &amp; Packets Foods </h4>
                          </div>
                     </div>
-
-                    <div class="col-md-4 col-sm-6" th:each="item: ${listItems}">
+                    <form th:action="@{/}" class="form-inline">
+                         <input type="text" style="width: 500px;" class="form-control" id="txtSearch" name="keyword" placeholder="Search Items"/>
+                         <button class="btn btn-primary" type="submit">Search</button>
+                    </form><br>
+                    <div class="col-md-3 col-sm-4" th:each="item: ${listItems}">
                          <!-- MENU THUMB -->
+
                          <div class="menu-thumb">
                               <a href="images/menu-image6.jpg" class="image-popup" title="Project title">
-                                   <img src="images/menu-image6.jpg" class="img-responsive" alt="">
+                                   <img th:src="${item.getImage()}" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
                                              <h3 th:text="${item.getName()}">Big Flat Fried</h3>
                                              <p th:text="${item.getDiscription()}">Pepper / Crispy</p>
+                                             <div class="col-lg-5">
+                                             <a href="#"  class="buy btn btn-danger ">Buy Foods</a>
+                                             </div>
+                                             <div class="col-lg-7">
+                                             <input type="number" style="color: #0b0b0b;float: left" class="quantity form-control" placeholder="Quantity"><br>
+                                             </div>
                                         </div>
                                         <div class="menu-price">
                                              <span th:text="${item.getUnit_price()}">$30</span>
+
                                         </div>
+
                                    </div>
-                              </a>
+                              </a><br>
                          </div>
                     </div>
 
