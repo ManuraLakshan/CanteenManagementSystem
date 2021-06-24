@@ -71,7 +71,7 @@
     SET operation = 'UPDATE';
     SET changedate = now();
 
-    INSERT INTO student_log(data,user,operation,changedate)values(user_data,user,operation,changedate);
+    INSERT INTO users_log(data,user,operation,changedate)values(user_data,user,operation,changedate);
 
     END//
     DELIMITER ;
@@ -97,7 +97,7 @@
     SET operation = 'DELETE';
     SET changedate = now();
 
-    INSERT INTO student_log(data,user,operation,changedate)values(user_data,user,operation,changedate);
+    INSERT INTO users_log(data,user,operation,changedate)values(user_data,user,operation,changedate);
 
     END//
     DELIMITER ;

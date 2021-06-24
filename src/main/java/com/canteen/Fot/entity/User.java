@@ -21,6 +21,9 @@ public class User {
     @Column(nullable = false , length = 20)
     private String lastName;
 
+    @Column(nullable = false ,length = 8,columnDefinition="String default 'customer'")
+    private String type;
+
     public Long getId() {
         return id;
     }
@@ -61,5 +64,11 @@ public class User {
         this.lastName = lastName;
     }
 
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
 }

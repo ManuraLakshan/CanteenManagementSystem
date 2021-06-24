@@ -30,6 +30,7 @@ public class UserController {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
+        user.setType("customer");
         urepo.save(user);
         return "register_success";
     }
