@@ -61,7 +61,7 @@ http://www.templatemo.com/tm-515-eatery
                          <li><a href="#home" class="smoothScroll">Home</a></li>
                          <li><a href="#about" class="smoothScroll">About</a></li>
                          <li><a href="#team" class="smoothScroll">Chef</a></li>
-                         <li><a href="#menu" class="smoothScroll">Menu</a></li>
+                         <li><a href="#menu" class="smoothScroll">Normal Foods</a></li>
                          <li><a href="#contact" class="smoothScroll">Contact</a></li>
 
                          <li><a th:href="@{/register}" class="smoothScroll" >Register</a> </li>
@@ -157,7 +157,7 @@ http://www.templatemo.com/tm-515-eatery
      </section>
 
 
-     <!-- TEAM -->
+     <!-- PRIMARY MENU -->
      <section id="team" data-stellar-background-ratio="0.5">
           <div class="container">
                <div class="row">
@@ -171,58 +171,58 @@ http://www.templatemo.com/tm-515-eatery
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                              <img src="images/team-image1.jpg" class="img-responsive" alt="">
+                              <img src="images/MainCategory/Breakfast-Cate.jpg" class="img-responsive" alt="">
                                    <div class="team-hover">
-                                        <div class="team-item">
-                                             <h4>Duis vel lacus id magna mattis vehicula</h4> 
-                                             <ul class="social-icon">
-                                                  <li><a href="#" class="fa fa-linkedin-square"></a></li>
-                                                  <li><a href="#" class="fa fa-envelope-o"></a></li>
-                                             </ul>
+                                        <div class="team-item ">
+                                             <div>
+                                                  <div class="social-icon">
+                                                       <h4>Check Today Breakfast Menu !</h4>
+                                                  <a href="#"><img style="width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/breakfast.png"></a>
+                                                  </div>
+                                             </div>
+
                                         </div>
                                    </div>
                          </div>
                          <div class="team-info">
-                              <h3>New Catherine</h3>
-                              <p>Kitchen Officer</p>
+                              <h3>Breakfast</h3>
+                              <p>Today Special</p>
                          </div>
                     </div>
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.4s">
-                              <img src="images/team-image2.jpg" class="img-responsive" alt="">
+                              <img src="images/MainCategory/lunch-Cate.png" class="img-responsive" alt="">
                                    <div class="team-hover">
                                         <div class="team-item">
-                                             <h4>Cras suscipit neque quis odio feugiat</h4>
-                                             <ul class="social-icon">
-                                                  <li><a href="#" class="fa fa-instagram"></a></li>
-                                                  <li><a href="#" class="fa fa-flickr"></a></li>
-                                             </ul>
+                                             <div class="social-icon">
+                                                  <h4>Check Today Lunch Menu !</h4>
+                                                  <a href="#"><img style="width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/lunch-logo.png"></a>
+                                             </div>
                                         </div>
                                    </div>
                          </div>
                          <div class="team-info">
-                              <h3>Lindsay Perlen</h3>
-                              <p>Owner &amp; Manager</p>
+                              <h3>Lunch</h3>
+                              <p>Lunch Special</p>
                          </div>
                     </div>
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
-                              <img src="images/team-image3.jpg" class="img-responsive" alt="">
+                              <img src="images/MainCategory/lunch-Cate.png" class="img-responsive" alt="">
                                    <div class="team-hover">
                                         <div class="team-item">
-                                             <h4>Etiam auctor enim tristique faucibus</h4>
-                                             <ul class="social-icon">
-                                                  <li><a href="#" class="fa fa-github"></a></li>
-                                                  <li><a href="#" class="fa fa-google"></a></li>
-                                             </ul>
+                                             <div class="social-icon">
+                                                  <h4>Check Today Diner Menu !</h4>
+                                                  <a href="#"><img style="width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/diner-logo.png"></a>
+                                             </div>
                                         </div>
                                    </div>
                          </div>
                          <div class="team-info">
-                              <h3>Isabella Grace</h3>
-                              <p>Pizza Specialist</p>
+                              <h3>Diner</h3>
+                              <p>Lunch Special</p>
                          </div>
                     </div>
                     
@@ -242,14 +242,14 @@ http://www.templatemo.com/tm-515-eatery
                               <h4>Tea Time Foods &amp; Packets Foods </h4>
                          </div>
                     </div>
-                    <form th:action="@{/}" class="form-inline">
+                    <form th:action="@{/}"  class="form-inline">
                          <input type="text" style="width: 500px;" class="form-control" id="txtSearch" name="keyword" placeholder="Search Items"/>
-                         <button class="btn btn-primary" type="submit">Search</button>
+                         <button   class="btn btn-primary" type="submit">Search</button>
                     </form><br>
                     <div class="col-md-3 col-sm-4" th:each="item: ${listItems}">
                          <!-- MENU THUMB -->
 
-                         <div class="menu-thumb">
+                         <div class="menu-thumb" id="OtherItemsList">
                               <a href="images/menu-image6.jpg" class="image-popup" title="Project title">
                                    <img th:src="${item.getImage()}" class="img-responsive" alt="">
 
@@ -261,7 +261,7 @@ http://www.templatemo.com/tm-515-eatery
                                              <a href="#"  class="buy btn btn-danger ">Buy Foods</a>
                                              </div>
                                              <div class="col-lg-7">
-                                             <input type="number" style="color: #0b0b0b;float: left" class="quantity form-control" placeholder="Quantity"><br>
+                                             <input  type="number" style="color: #0b0b0b;float: left" class="quantity form-control" placeholder="Quantity"><br>
                                              </div>
                                         </div>
                                         <div class="menu-price">
@@ -464,3 +464,13 @@ http://www.templatemo.com/tm-515-eatery
 
 </body>
 </html>
+<script>
+     function myFunction() {
+
+          $(document).ready(function () {
+               $('html, body').animate({
+                    scrollTop: $('#OtherItemsList').offset().top
+               }, 'slow');
+          });
+     }
+</script>

@@ -20,6 +20,7 @@ public class ItemController {
         List<Inventry> inventory = (List<Inventry>) InvenService.getAllitems();
         if(keyword != null) {
             model.addAttribute("listItems",InvenService.findByKeyword(keyword) );
+
         }else {
             model.addAttribute("listItems", inventory);
         }
