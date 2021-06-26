@@ -1,10 +1,12 @@
 package com.canteen.Fot.controller;
 
 import com.canteen.Fot.Inventry;
+import com.canteen.Fot.entity.User;
 import com.canteen.Fot.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -25,6 +27,10 @@ public class ItemController {
             model.addAttribute("listItems", inventory);
         }
         return "index";
+    }
+    @GetMapping("/breakfast_page")
+    public String showSignUpForm(Model model){
+        return "mainFoodPage";
     }
 
 }
