@@ -172,16 +172,15 @@ http://www.templatemo.com/tm-515-eatery
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                              <img src="images/MainCategory/Breakfast-Cate.jpg" class="img-responsive" alt="">
+                              <img src="images/MainCategory/Breakfast-Cate.png" class="img-responsive" alt="">
                                    <div class="team-hover">
                                         <div class="team-item ">
                                              <div>
                                                   <div class="social-icon">
                                                        <h4>Check Today Breakfast Menu !</h4>
-                                                  <a href="#"><img style="width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/breakfast.png"></a>
+                                                       <a id="breakfastSlideBar" onclick="breakfastCat()"><img style=" width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/breakfast.png"></a>
                                                   </div>
                                              </div>
-
                                         </div>
                                    </div>
                          </div>
@@ -198,7 +197,7 @@ http://www.templatemo.com/tm-515-eatery
                                         <div class="team-item">
                                              <div class="social-icon">
                                                   <h4>Check Today Lunch Menu !</h4>
-                                                  <a href="#"><img style="width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/lunch-logo.png"></a>
+                                                  <a id="lunchSlideBar" onclick="lunchCat()"><img style="width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/lunch-logo.png"></a>
                                              </div>
                                         </div>
                                    </div>
@@ -211,12 +210,12 @@ http://www.templatemo.com/tm-515-eatery
 
                     <div class="col-md-4 col-sm-4">
                          <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
-                              <img src="images/MainCategory/lunch-Cate.png" class="img-responsive" alt="">
+                              <img src="images/MainCategory/dinner.jpg" class="img-responsive" alt="">
                                    <div class="team-hover">
                                         <div class="team-item">
                                              <div class="social-icon">
                                                   <h4>Check Today Diner Menu !</h4>
-                                                  <a href="#"><img style="width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/diner-logo.png"></a>
+                                                  <a id="dinerSlideBar" onclick="dinnerCat()"><img style="width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/diner-logo.png"></a>
                                              </div>
                                         </div>
                                    </div>
@@ -229,6 +228,7 @@ http://www.templatemo.com/tm-515-eatery
                     
                </div>
           </div>
+
      </section>
 
 
@@ -237,19 +237,22 @@ http://www.templatemo.com/tm-515-eatery
           <div class="container">
                <div class="row">
 
-                    <div class="col-md-12 col-sm-12">
-                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                              <h2>Normal Foods</h2>
-                              <h4>Tea Time Foods &amp; Packets Foods </h4>
-                         </div>
-                    </div>
-                    <form th:action="@{/}"  class="form-inline">
-                         <input type="text" style="width: 500px;" class="form-control" id="txtSearch" name="keyword" placeholder="Search Items"/>
-                         <button   class="btn btn-primary" type="submit">Search</button>
-                    </form><br>
-                    <div class="col-md-3 col-sm-4" th:each="item: ${listItems}">
-                         <!-- MENU THUMB -->
 
+                          <div class="col-md-12 col-sm-12">
+
+                              <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                                   <h2>Normal Foods</h2>
+                                   <h4>Tea Time Foods &amp; Packets Foods </h4>
+                              </div>
+
+                         </div>
+                         <form th:action="@{/}"  class="form-inline">
+                              <input type="text" style="width: 500px;" class="form-control" id="txtSearch" name="keyword" placeholder="Search Items"/>
+                              <button   class="btn btn-primary" type="submit">Search</button>
+                         </form><br>
+
+                         <!-- MENU THUMB -->
+                    <div class="col-md-3 col-sm-4" th:each="item: ${listItems}">
                          <div class="menu-thumb" id="OtherItemsList">
                               <a href="images/menu-image6.jpg" class="image-popup" title="Project title">
                                    <img th:src="${item.getImage()}" class="img-responsive" alt="">
@@ -259,10 +262,10 @@ http://www.templatemo.com/tm-515-eatery
                                              <h3 th:text="${item.getName()}">Big Flat Fried</h3>
                                              <p th:text="${item.getDiscription()}">Pepper / Crispy</p>
                                              <div class="col-lg-5">
-                                             <a href="#"  class="buy btn btn-danger ">Buy Foods</a>
+                                                  <a href="#"  class="buy btn btn-danger ">Buy Foods</a>
                                              </div>
                                              <div class="col-lg-7">
-                                             <input  type="number" style="color: #0b0b0b;float: left" class="quantity form-control" placeholder="Quantity"><br>
+                                                   <input  type="number" style="color: #0b0b0b;float: left" class="quantity form-control" placeholder="Quantity"><br>
                                              </div>
                                         </div>
                                         <div class="menu-price">
@@ -466,12 +469,34 @@ http://www.templatemo.com/tm-515-eatery
 </body>
 </html>
 <script>
-     function myFunction() {
 
-          $(document).ready(function () {
-               $('html, body').animate({
-                    scrollTop: $('#OtherItemsList').offset().top
-               }, 'slow');
+// Breakfast slide down slider
+
+     $(document).ready(function(){
+          $("#breakfastSlideBar").click(function(){
+               $("#breakfastPanel").slideToggle("slow");
+               $("#lunchPanel").slideUp("slow");
+               $("#dinerPanel").slideUp("slow");
+
           });
-     }
+     });
+// Lunch side down slider
+
+     $(document).ready(function(){
+          $("#lunchSlideBar").click(function(){
+               $("#lunchPanel").slideToggle("slow");
+               $("#breakfastPanel").slideUp("slow");
+               $("#dinerPanel").slideUp("slow");
+          });
+     });
+// Diner side down slider
+
+     $(document).ready(function(){
+          $("#dinerSlideBar").click(function(){
+               $("#dinerPanel").slideToggle("slow");
+               $("#breakfastPanel").slideUp("slow");
+               $("#lunchPanel").slideUp("slow");
+          });
+     });
+
 </script>

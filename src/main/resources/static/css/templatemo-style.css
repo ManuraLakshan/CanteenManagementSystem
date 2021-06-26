@@ -543,8 +543,6 @@ http://www.templatemo.com/tm-515-eatery
     margin-top: 5px;
   }
 
-
-
   /*---------------------------------------
      MENU              
   -----------------------------------------*/
@@ -652,11 +650,12 @@ http://www.templatemo.com/tm-515-eatery
   #testimonial {
     background: url('../images/testimonial-bg.jpg') center center no-repeat;
     background-size: cover;
+
   }
 
   #testimonial .owl-dots {
     position: relative;
-    top: 0;
+    top: 50px;
     right: 0;
     justify-content: center;
   }
@@ -687,7 +686,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .tst-author {
-    margin-top: 20px;
+    margin-top: 0px;
   }
 
   .tst-author h4,

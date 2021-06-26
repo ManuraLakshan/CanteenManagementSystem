@@ -18,6 +18,9 @@ public class Inventry {
     private Integer current_qunt;
     private String image;
 
+
+    private String availability;
+
     public Integer getInv_id() {
         return inv_id;
     }
@@ -80,5 +83,12 @@ public class Inventry {
 
     public void setImage(String image) {
         this.image = image;
+    }
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
     }
 }

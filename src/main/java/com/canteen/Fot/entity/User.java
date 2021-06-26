@@ -21,7 +21,7 @@ public class User {
     @Column(nullable = false , length = 20)
     private String lastName;
 
-    @Column(nullable = false ,length = 8,columnDefinition="String default 'customer'")
+    @Column(nullable = false ,length = 8)
     private String type;
 
     public Long getId() {
