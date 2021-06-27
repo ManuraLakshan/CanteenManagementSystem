@@ -114,3 +114,30 @@
     +----+------------------------------+----------------+-----------+---------------------+
     1 row in set (0.00 sec)
 //====================================================
+
+    INSERT QUERY FOR USER_ROLE TABLE
+
+    INSERT INTO `roles` (`role_id`, `name`) VALUES
+    (1, 'USER'),
+    (2, 'CREATOR'),
+    (3, 'EDITOR'),
+    (4, 'ADMIN');
+
+//====================================================
+
+05. INSERTING USER ROLE HERE ONLY UPDATE CUSTOMERS ROLE
+
+    DELIMITER //
+
+    CREATE TRIGGER TR_insert_users_role
+    AFTER INSERT
+    ON users FOR EACH ROW
+    BEGIN
+
+    DECLARE user_ids INT;
+    SET user_ids = new.id;
+
+    INSERT INTO users_roles (user_id, role_id) VALUES(user_ids, 1);
+
+    END//
+    DELIMITER ;

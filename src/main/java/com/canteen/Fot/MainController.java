@@ -10,4 +10,9 @@ public class MainController {
         public String loginMessage(){
             return "index";
         }
+
+        @RequestMapping("/admin")
+        public String loadAdmin(){
+            return "admindashboard";
+        }
 }

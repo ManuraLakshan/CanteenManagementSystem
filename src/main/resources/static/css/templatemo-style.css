@@ -1012,3 +1012,26 @@ http://www.templatemo.com/tm-515-eatery
     }
   }
 
+/*---------------------------------------
+    ADMIN PAGE STYLES
+ -----------------------------------------*/
+.navbar-dark .navbar-brand {
+  color: #0b0b0b;
+}
+.navbar-brand {
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+

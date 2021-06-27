@@ -26,5 +26,4 @@ public class ItemController {
         }
         return "index";
     }
-
 }
