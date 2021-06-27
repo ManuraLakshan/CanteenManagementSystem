@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<!-- THIS IS FOR USER AUTHENTICATION VARIOUS USER TYPES-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
      <title>Fot.Canteen</title>
@@ -54,7 +52,7 @@ http://www.templatemo.com/tm-515-eatery
                     </button>
 
                     <!-- lOGO TEXT HERE -->
-                    <a href="#home" class="navbar-brand">FOT<span>.</span> Canteen</a>
+                    <a href="index.html" class="navbar-brand">FOT<span>.</span> Canteen</a>
                </div>
 
                <!-- MENU LINKS -->
@@ -69,11 +67,7 @@ http://www.templatemo.com/tm-515-eatery
                          <li><a th:href="@{/register}" class="smoothScroll" >Register</a> </li>
                          <li><a th:href="@{/login}" class="smoothScroll" >Login</a> </li>
                          <li><a th:href="@{/list_users}" class="smoothScroll" >All Users</a> </li>
-
-                         <!--we want to control administrative action for only authorized users-->
-                         <li sec:authorize="hasAnyAuthority('CREATOR', 'ADMIN','EDITOR')">
-                              <a th:href="@{/admin}" class="smoothScroll">Admin</a>
-                         </li>
+                         <li><a href="#admindashboard" class="smoothScroll">Admin</a> </li>
                     </ul>
 
                          <div>
