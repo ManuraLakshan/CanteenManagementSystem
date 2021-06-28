@@ -23,11 +23,17 @@
 
 </head>
 <body>
-    <h3 class="text-center">User Registration form</h3>
-    <hr>
-    <div class="container text-center">
+<!-- web page navbar start -->
+
+<div th:replace="header :: navbar"></div>
+
+<!-- web page navbar end -->
+    <div class="container" style="margin-top: 100px">
+        <h3 class="text-center">User Registration form</h3>
+        <hr>
+        <div class="container text-center">
             <form th:action="@{/process_register}" method="post" th:object="${user}"
-                style="max-width: 600px; margin: 0 auto"
+                  style="max-width: 600px; margin: 0 auto"
             >
                 <div class="m-3">
                     <div class="form-group row">
@@ -42,7 +48,7 @@
                         <label class="col-form-label col-4">Password</label>
                         <div class="col-8">
                             <input type="password" class="form-control" th:field="*{password}" required
-                            minlength="6" maxlength="10"/>
+                                   minlength="6" maxlength="10"/>
                         </div>
                     </div>
 
@@ -68,6 +74,23 @@
 
                 </div>
             </form>
+        </div>
     </div>
+
+<!-- web page footer -->
+
+<div th:replace="footer :: footer"></div>
+
+<!-- web page footer end -->
+
+
+<script th:src="@{js/jquery.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/jquery.stellar.min.js}"></script>
+<script th:src="@{js/wow.min.js}"></script>
+<script th:src="@{js/owl.carousel.min.js}"></script>
+<script th:src="@{js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{js/smoothscroll.js}"></script>
+<script th:src="@{js/custom.js}"></script>
 </body>
 </html>
