@@ -1,12 +1,16 @@
 package com.canteen.Fot.controller;
 
+import com.canteen.Fot.Category;
 import com.canteen.Fot.Inventry;
 import com.canteen.Fot.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import java.util.List;
 
@@ -28,8 +32,15 @@ public class ItemController {
         return "index";
     }
     @GetMapping("/breakfastMainCat")
-    public String showBreakfastPage(){
-        return"mainFoodPage";
+    public String showBreakfastPage( Model model, Integer id){
+//        List<Category> categories = (List<Category>) CatService.getAllCategories();
+//        model.addAttribute("MaincateItems", CatService.findByMainFoodId(cate_key));
+        //Inventry inventry = (Inventry) InvenService.findByMainFoodId(cate_key);
+        List<Inventry> inventory = (List<Inventry>) InvenService.getAllitems();
+        model.addAttribute("mainCateItems",InvenService.findByMainFoodId(id) );
+        return "mainFoodPage";
+
     }
+
 
 }

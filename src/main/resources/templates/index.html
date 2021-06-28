@@ -134,7 +134,10 @@ http://www.templatemo.com/tm-515-eatery
                                              <div>
                                                   <div class="social-icon">
                                                        <h4>Check Today Breakfast Menu !</h4>
-                                                       <a id="breakfastSlideBar" th:href="@{/breakfastMainCat}" onclick="breakfastCat()"><img style=" width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/breakfast.png"></a>
+                                                       <form th:action="@{/breakfastMainCat}">
+                                                       <input type="hidden" id="custId" name="id" value="4">
+                                                       <input type="image" id="breakfastSlideBar"  onclick="breakfastCat()"style=" width: 100px; height: auto; margin-top: 60px;" src="images/MainCategory/breakfast.png">
+                                                       </form>
                                                   </div>
                                              </div>
                                         </div>

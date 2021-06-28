@@ -13,4 +13,10 @@ public interface InventryRepositary extends CrudRepository<Inventry, Integer> {
     //Filter items
     @Query(value = "SELECT * from Inventry i WHERE i.name like %:keyword%",nativeQuery = true)
     List<Inventry> findByKeyword(@Param("keyword") String keyword);
+
+    //Select main category
+    @Query(value = "SELECT * from Inventry i WHERE i.cat_id = :id ",nativeQuery = true)
+    List<Inventry> findMainCate(@Param("id") Integer id);
+
+
 }

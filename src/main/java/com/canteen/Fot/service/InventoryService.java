@@ -1,5 +1,6 @@
 package com.canteen.Fot.service;
 
+import com.canteen.Fot.Category;
 import com.canteen.Fot.Inventry;
 import com.canteen.Fot.InventryRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +24,10 @@ public class InventoryService {
     public List<Inventry> findByKeyword(String keyword){
         return InRepo.findByKeyword(keyword);
     }
+    //Select Category
+    public List<Inventry> findByMainFoodId(Integer id){
+        return InRepo.findMainCate(id);
+    }
+
+
 }
