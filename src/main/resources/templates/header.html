@@ -1,4 +1,4 @@
-<div th:fragment="navbar">
+<div th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
     <!-- PRE LOADER -->
     <section class="preloader">
         <div class="spinner">
@@ -36,7 +36,7 @@
                     <li><a th:href="@{/register}" class="smoothScroll" >Register</a> </li>
                     <li><a th:href="@{/login}" class="smoothScroll" >Login</a> </li>
                     <li><a th:href="@{/list_users}" class="smoothScroll" >All Users</a> </li>
-                    <li><a href="#admindashboard" class="smoothScroll">Admin</a> </li>
+                    <li><a th:href="@{/admin}" class="smoothScroll">Admin</a> </li>
                 </ul>
 
                 <div>
