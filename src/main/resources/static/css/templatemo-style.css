@@ -434,6 +434,15 @@ http://www.templatemo.com/tm-515-eatery
     color: #ffffff;
   }
 
+  /*-----------------------------------------
+  For mainfoodPage -css
+  ---------------------------------------- */
+  .slider .mainFood-head {
+    background-image: url(../images/MainCategory/Head/head.jpg);
+  }
+  .slider .mainFood-head {
+    background: #292929;
+  }
 
 
   /*---------------------------------------
@@ -455,7 +464,6 @@ http://www.templatemo.com/tm-515-eatery
   .about-image {
     position: absolute;
   }
-
 
 
   /*---------------------------------------
