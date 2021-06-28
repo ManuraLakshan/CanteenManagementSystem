@@ -11,7 +11,7 @@ import java.util.List;
 public interface InventryRepositary extends CrudRepository<Inventry, Integer> {
 
     //Filter items
-    @Query(value = "SELECT * from Inventry i WHERE i.name like %:keyword%",nativeQuery = true)
+    @Query(value = "SELECT * from Inventry i WHERE i.cat_id=:4 and i.name like %:keyword%",nativeQuery = true)
     List<Inventry> findByKeyword(@Param("keyword") String keyword);
 
     //Select main category
