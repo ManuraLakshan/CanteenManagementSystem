@@ -31,7 +31,7 @@ public class ItemController {
         }
         return "index";
     }
-    @GetMapping("/breakfastMainCat")
+    @GetMapping("/mainCategoryFoods")
     public String showBreakfastPage( Model model, Integer id){
 //        List<Category> categories = (List<Category>) CatService.getAllCategories();
 //        model.addAttribute("MaincateItems", CatService.findByMainFoodId(cate_key));
