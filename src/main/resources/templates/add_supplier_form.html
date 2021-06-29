@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Suppliers</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" th:href="@{/css/templatemo-style.css}">
+    <!--==================================================================-->
+</head>
+<body>
+<!--======================NAV BAR START==================================-->
+<!-- MENU -->
+<div class="container">
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation"
+             style="background-color:#0b0b0b; height:80px">
+        <a href="#" class="navbar-brand"><b>[[${#request.userPrincipal.principal.fullName}]]</b></a>
+        <ul class="nav navbar-nav" style="margin-right: fill">
+            <li class="navbar-link" style="font-size:18px"><a href="../#home" class="navbar-link">Home</a></li>
+            <li><a href="#about" class="navbar-link">Add Food Items</a></li>
+            <li><a href="#team" class="navbar-link">POS</a></li>
+            <li><a href="#menu" class="navbar-link">Inventory</a></li>
+            <li><a href="#contact" class="navbar-link">Food Orders</a></li>
+            <li><a href="#newuser" class="navbar-link">Add new User</a></li>
+        </ul>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" class="btn btn-primary" value="Logout" style="margin-left: 800px"/>
+        </form>
+    </section>
+</div>
+<!--==============================================================-->
+
+<!--==========FORM STARTED ===================================== -->
+<div class="container" style="margin-top: 100px">
+    <h3 class="text-center">New Supplier Creating Form</h3>
+    <hr>
+    <div class="container text-center">
+        <form th:action="@{/process_add_supplier}" method="post" th:object="${supplier}"
+              style="max-width: 600px; margin: 0 auto">
+            <div class="m-3">
+                <!--===== NAME ===========================-->
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Supplier Name</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control"
+                               placeholder="Enter Supplier Name "
+                               maxlength="30" minlength="4"
+                               th:field="*{sup_name}" required
+                        />
+                    </div>
+                </div>
+                <!--========================================-->
+                <!--===== ADDRESS ==========================-->
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Supplier Address</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control"
+                               placeholder="Enter Supplier Address "
+                               maxlength="30" minlength="4"
+                               th:field="*{sup_address}" required/>
+                    </div>
+                </div>
+                <!--========================================-->
+                <!--===== EMAIL   ==========================-->
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Supplier Email address</label>
+                    <div class="col-8">
+                        <input type="email" class="form-control"
+                               placeholder="Enter Supplier email"
+                               th:field="*{sup_email}" required
+                        />
+                    </div>
+                </div>
+                <!-- ======================================= -->
+                <!--===== PHONE NUMBER =====================-->
+                <div class="form-group row">
+                    <label class="col-form-label col-4">Supplier Phone</label>
+                    <div class="col-8">
+                        <input type="tel" class="form-control"
+                               placeholder="Enter Supplier Phone "
+                               maxlength="10" minlength="10"
+                               th:field="*{sup_phone}" required
+                        />
+                    </div>
+                </div>
+                <!--========================================-->
+                <div>
+                    <button type="submit" class="btn btn-primary">Save Supplier Details</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--=============================STYLE SHEETS AND END TAG ========-->
+<script th:src="@{js/jquery.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/jquery.stellar.min.js}"></script>
+<script th:src="@{js/wow.min.js}"></script>
+<script th:src="@{js/owl.carousel.min.js}"></script>
+<script th:src="@{js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{js/smoothscroll.js}"></script>
+<script th:src="@{js/custom.js}"></script>
+</body>
+</html>

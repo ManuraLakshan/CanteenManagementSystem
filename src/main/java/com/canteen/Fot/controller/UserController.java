@@ -19,8 +19,8 @@ public class UserController {
     private UserRepository urepo;
 
     @GetMapping("/register")
-    public String showSignUpForm(Model model){
-        model.addAttribute("user",new User());
+    public String showSignUpForm(Model model) {
+        model.addAttribute("user", new User());
         return "signup_form";
     }
 
@@ -39,7 +39,7 @@ public class UserController {
     @GetMapping("/list_users")
     public String viewUserList(Model model) {
         List<User> listUsers = urepo.findAll();
-        model.addAttribute("listUsers",listUsers);
+        model.addAttribute("listUsers", listUsers);
         return "users";
     }
 
