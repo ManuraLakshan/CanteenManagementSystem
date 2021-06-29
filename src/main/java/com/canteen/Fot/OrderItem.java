@@ -16,7 +16,16 @@ public class OrderItem {
     private String discription;
     private float total;
     private String timestamp;
+    private  Integer purchased_states;
 
+    public Integer getPurchased_states() {
+        return purchased_states;
+    }
+
+    public void setPurchased_states(Integer purchased_states) {
+        this.purchased_states = purchased_states;
+    }
+    
     public Integer getOrder_id() {
         return order_id;
     }
