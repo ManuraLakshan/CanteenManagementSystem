@@ -19,7 +19,7 @@ public class ItemController {
     @Autowired
     private InventoryService InvenService;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String getAllInventory(Model model, String keyword)
     {
         List<Inventry> inventory = (List<Inventry>) InvenService.getAllitems();
@@ -44,3 +44,5 @@ public class ItemController {
 
 
 }
+
+// delete session stuff before pushing

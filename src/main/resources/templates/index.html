@@ -255,6 +255,7 @@ http://www.templatemo.com/tm-515-eatery
                               </div>
 
                          </div>
+
                          <form th:action="@{/}"  class="form-inline">
                               <input type="text" style="width: 500px;" class="form-control" id="txtSearch" name="keyword" placeholder="Search Items"/>
                               <button   class="btn btn-primary" type="submit">Search</button>
@@ -270,12 +271,14 @@ http://www.templatemo.com/tm-515-eatery
                                         <div class="menu-item">
                                              <h3 th:text="${item.getName()}">Big Flat Fried</h3>
                                              <p th:text="${item.getDiscription()}">Pepper / Crispy</p>
+
                                              <div class="col-lg-5">
-                                                  <a href="#"  class="buy btn btn-danger ">Buy Foods</a>
+                                                  <a  th:href="@{}"  class="buy btn btn-danger ">Buy Foods</a>
                                              </div>
                                              <div class="col-lg-7">
                                                    <input  type="number" style="color: #0b0b0b;float: left" class="quantity form-control" placeholder="Quantity"><br>
                                              </div>
+
                                         </div>
                                         <div class="menu-price">
                                              <span th:text="${item.getUnit_price()}">$30</span>
