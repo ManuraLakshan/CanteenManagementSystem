@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+               xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
 <head>
 
      <title>Fot.Canteen</title>
@@ -72,7 +74,7 @@ http://www.templatemo.com/tm-515-eatery
 
                          <div>
                          <ul class="nav navbar-nav navbar-right">
-                              <li><a href="#">Call Now! <i class="fa fa-phone"></i> 010 020 0340</a></li>
+                              <li><b sec:authentication = "name"></b></li>
                               <a href="#footer" class="section-btn">Reserve a table</a>
                          </ul>
                     </div>
@@ -263,8 +265,8 @@ http://www.templatemo.com/tm-515-eatery
 
                          <!-- MENU THUMB -->
 
-                    <div class="col-md-3 col-sm-4" th:each="item: ${listItems}">
-                         <div class="menu-thumb" id="OtherItemsList">
+                    <div class="col-md-3 col-sm-4" th:each="item: ${listItems}" >
+                         <div class="menu-thumb" id="OtherItemsList" >
                               <a href="images/menu-image6.jpg" class="image-popup" title="Project title">
                                    <img th:src="${item.getImage()}" class="img-responsive" alt="">
 
@@ -274,7 +276,7 @@ http://www.templatemo.com/tm-515-eatery
                                              <p th:text="${item.getDiscription()}">Pepper / Crispy</p>
 
                                                   <div>
-                                                       <a  th:href="@{/orderItem/(canteenitem=${item.getInv_id()}, user = ${item.getInv_id()})}"  class="buy btn btn-danger " style="width: 150px;">Order Foods</a>
+                                                       <a  th:href="@{/orderItem/(canteenitem=${item.getInv_id()})}"  class="buy btn btn-danger " style="width: 150px;">Order Foods</a>
                                                   </div>
 
 

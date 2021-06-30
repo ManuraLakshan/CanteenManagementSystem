@@ -46,8 +46,15 @@
 			<artifactId>jna</artifactId>
 			<version>5.5.0</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>16.0.2</version>
+		</dependency>
 
 		<!--=================================================-->
 		<!--Sujan - I put this new dependency for our web security -->
