@@ -25,7 +25,7 @@ public class OrderItem {
     public void setPurchased_states(Integer purchased_states) {
         this.purchased_states = purchased_states;
     }
-    
+
     public Integer getOrder_id() {
         return order_id;
     }
