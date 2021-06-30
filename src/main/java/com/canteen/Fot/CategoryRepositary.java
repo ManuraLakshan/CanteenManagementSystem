@@ -10,5 +10,4 @@ import java.util.List;
 @Repository
 public interface CategoryRepositary extends CrudRepository<Category,Integer> {
 
-
 }

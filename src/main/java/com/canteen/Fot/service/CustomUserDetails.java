@@ -3,6 +3,8 @@ package com.canteen.Fot.service;
 
 import com.canteen.Fot.entity.Role;
 import com.canteen.Fot.entity.User;
+import com.canteen.Fot.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +16,9 @@ import java.util.Set;
 
 public class CustomUserDetails implements UserDetails {
     private User user;
+
+    @Autowired
+    private UserRepository uRepo;
 
 
     public CustomUserDetails(User user) {
@@ -65,6 +70,10 @@ public class CustomUserDetails implements UserDetails {
 
     public String getFullName() {
         return user.getFirstName()+" "+user.getLastName();
+    }
+
+    public User getUserId(long id){
+        return uRepo.findById(id).get();
     }
 
 }

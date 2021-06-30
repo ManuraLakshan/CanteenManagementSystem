@@ -3,12 +3,17 @@ package com.canteen.Fot.controller;
 import com.canteen.Fot.entity.User;
 import com.canteen.Fot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -43,5 +48,33 @@ public class UserController {
         return "users";
     }
 
+    @RequestMapping(value = "/username", method = RequestMethod.GET)
+    @ResponseBody
+    public String currentUserName(Principal principal) {
+        return principal.getName();
+    }
+
+
+    /*public static Long getCurrentUserId() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        Authentication authentication = securityContext.getAuthentication();
+        String id = null;
+        if (authentication != null)
+            if (authentication.getPrincipal() instanceof UserDetails)
+                id = ((UserDetails) authentication.getPrincipal()).getUsername();
+            else if (authentication.getPrincipal() instanceof String)
+                id = (String) authentication.getPrincipal();
+        try {
+            return Long.valueOf(id != null ? id : "1"); //anonymoususer
+        } catch (NumberFormatException e) {
+            return 1L;
+        }
+    }
+
+    @GetMapping("/ids")
+    String uid(){
+        String id = getCurrentUserId().toString();
+        return id;
+    }*/
 
 }

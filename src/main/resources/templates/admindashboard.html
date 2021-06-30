@@ -28,6 +28,7 @@
 <div>
 <section class="navbar custom-navbar navbar-fixed-top" role="navigation" style="background-color:#0b0b0b; height:80px">
         <a href="#" class="navbar-brand" ><b>[[${#request.userPrincipal.principal.fullName}]]</b></a>
+
             <ul class="nav navbar-nav" style="margin-right: fill">
                 <li class="navbar-link" style="font-size:18px"><a href="../#home" class="navbar-link">Home</a></li>
                 <li><a href="#about" class="navbar-link">Add Food Items</a></li>
@@ -36,7 +37,6 @@
                 <li><a href="#contact" class="navbar-link">Food Orders</a></li>
                 <li><a href="#newuser" class="navbar-link">Add new User</a></li>
             </ul>
-
     <form th:action="@{/logout}" method="post" >
         <input type="submit" class="btn btn-primary" value="Logout" style="margin-left: 800px"/>
     </form>
@@ -44,4 +44,13 @@
 </div>
 <!--==============================================================-->
     <!-- TO DISPLAY AVAILABLE ITEMS TABLE -->
+
+<!--===============CURRENT USER ID ===================================-->
+<!-- EVERY EMAIL ID IS UNIQUE TO IDENTIFYING USERS -->
+<P style="color: #007bff;margin-top: 100px">User ID :-->
+    <b>[[${#request.userPrincipal.principal.username}]]</b></P>
+
+
+
+<!--=================================================================-->
 
