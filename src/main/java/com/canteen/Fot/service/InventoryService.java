@@ -3,6 +3,7 @@ package com.canteen.Fot.service;
 import com.canteen.Fot.Category;
 import com.canteen.Fot.Inventry;
 import com.canteen.Fot.InventryRepositary;
+import com.canteen.Fot.OrderItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +29,7 @@ public class InventoryService {
     public List<Inventry> findByMainFoodId(Integer id){
         return InRepo.findMainCate(id);
     }
+
 
 
 }

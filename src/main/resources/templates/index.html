@@ -262,6 +262,7 @@ http://www.templatemo.com/tm-515-eatery
                          </form><br>
 
                          <!-- MENU THUMB -->
+
                     <div class="col-md-3 col-sm-4" th:each="item: ${listItems}">
                          <div class="menu-thumb" id="OtherItemsList">
                               <a href="images/menu-image6.jpg" class="image-popup" title="Project title">
@@ -272,12 +273,10 @@ http://www.templatemo.com/tm-515-eatery
                                              <h3 th:text="${item.getName()}">Big Flat Fried</h3>
                                              <p th:text="${item.getDiscription()}">Pepper / Crispy</p>
 
-                                             <div class="col-lg-5">
-                                                  <a  th:href="@{}"  class="buy btn btn-danger ">Buy Foods</a>
-                                             </div>
-                                             <div class="col-lg-7">
-                                                   <input  type="number" style="color: #0b0b0b;float: left" class="quantity form-control" placeholder="Quantity"><br>
-                                             </div>
+                                                  <div>
+                                                       <a  th:href="@{/orderItem/(canteenitem=${item.getInv_id()}, user = ${item.getInv_id()})}"  class="buy btn btn-danger " style="width: 150px;">Order Foods</a>
+                                                  </div>
+
 
                                         </div>
                                         <div class="menu-price">

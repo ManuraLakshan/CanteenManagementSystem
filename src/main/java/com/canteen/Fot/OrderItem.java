@@ -13,9 +13,7 @@ public class OrderItem {
     private Integer item_id;
     private String cust_id;
     private Integer order_qunt;
-    private String discription;
     private float total;
-    private String timestamp;
     private  Integer purchased_states;
 
     public Integer getPurchased_states() {
@@ -58,14 +56,6 @@ public class OrderItem {
         this.order_qunt = order_qunt;
     }
 
-    public String getDiscription() {
-        return discription;
-    }
-
-    public void setDiscription(String discription) {
-        this.discription = discription;
-    }
-
     public float getTotal() {
         return total;
     }
@@ -74,11 +64,5 @@ public class OrderItem {
         this.total = total;
     }
 
-    public String getTimestamp() {
-        return timestamp;
-    }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
 }
