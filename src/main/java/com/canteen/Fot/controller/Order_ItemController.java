@@ -1,7 +1,9 @@
 package com.canteen.Fot.controller;
 
 import com.canteen.Fot.OrderItem;
+import com.canteen.Fot.repository.OrderCartRepo;
 import com.canteen.Fot.service.CustomUserDetails;
+import com.canteen.Fot.service.InventoryService;
 import com.canteen.Fot.service.Order_ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -15,6 +17,10 @@ import java.util.List;
 public class Order_ItemController {
     @Autowired
     private Order_ItemService orderService;
+    @Autowired
+    private OrderCartRepo cartRepo;
+
+
 
 
     @RequestMapping(value = "/orderItem", method = RequestMethod.GET)
@@ -23,6 +29,8 @@ public class Order_ItemController {
        if(UserDetails != null) {
            orderItem.setItem_id(item_id);
            orderItem.setCust_id(UserDetails.getUsername());
+           orderItem.setOrder_qunt(1);
+           orderItem.setPurchased_states(0);
            orderService.saveItem(orderItem);
            return "redirect:/";
        }else {
@@ -32,10 +40,17 @@ public class Order_ItemController {
 
     }
     @GetMapping("/ordered")
-    public String orderedItems(Model model){
-        List<OrderItem> orderedList = orderService.listAll();
-        model.addAttribute("orderedList", orderedList);
-        return"oderList";
+    public String orderedItems(Model model, @AuthenticationPrincipal CustomUserDetails UserDetails ){
+
+
+
+
+       model.addAttribute("orderedList",cartRepo.findAll(UserDetails.getUsername()));
+
+
+        return "oderList" ;
     }
+
+
 
 }
