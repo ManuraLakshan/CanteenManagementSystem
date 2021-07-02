@@ -1,12 +1,9 @@
 package com.canteen.Fot.service;
 
 
-<<<<<<< HEAD
-import com.canteen.Fot.OderItemRepositary;
-=======
-import com.canteen.Fot.repository.OderItemRepositary;
->>>>>>> b32616a28322c8a336207b7dd2ba248a3afe2a15
+
 import com.canteen.Fot.OrderItem;
+import com.canteen.Fot.repository.OderItemRepositary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

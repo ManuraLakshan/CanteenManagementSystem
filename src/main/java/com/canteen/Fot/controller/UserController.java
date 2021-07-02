@@ -47,7 +47,7 @@ public class UserController {
     public String viewUserList(Model model) {
         List<User> listUsers = urepo.findAll();
         model.addAttribute("listUsers", listUsers);
-        return "users";
+        return "index";
     }
 
     @RequestMapping(value = "/username", method = RequestMethod.GET)
