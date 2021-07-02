@@ -2,10 +2,10 @@
 
 INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('manura@gmail.com',1,2,112.34,1);
 INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('manura@gmail.com',1,2,112.34,0);
-INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('TG2017256',1,2,112.34,0);
-INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('TG2017259',1,2,112.34,0);
-INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('TG2017250',1,2,112.34,0);
-INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('TG2017257',2,2,112.34,0);
+INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('kelum@gmail.com',1,2,112.34,1);
+INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('manura@gmail.com',1,2,112.34,0);
+INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('manura@gmail.com',1,2,112.34,0);
+INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('manura@gmail.com',2,2,112.34,0);
 
 
 
@@ -14,21 +14,20 @@ INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES
 ***************************************Move oder 12.AM*******************************
 DELIMITER //
 CREATE EVENT move_order_details
-ON SCHEDULE EVERY 20 SECOND
+ON SCHEDULE EVERY 10 SECOND
 STARTS CURRENT_TIMESTAMP
 ON COMPLETION PRESERVE
 DO
 BEGIN
+
 	DECLARE orderId int;
 	DECLARE customerId varchar(255);
 	DECLARE orderQunty int;
-	DECLARE Total float;
-	DECLARE  states int;
-
-
-
+	DECLARE Tot float;
+	DECLARE poi int;
 	DECLARE first_id int;
-	DECLARE row_count int DEFAULT 0;
+	DECLARE row_count int;
+
 
 
 	SELECT COUNT(*) INTO row_count FROM order_item ;
@@ -36,32 +35,32 @@ BEGIN
 
 	 simple_loop: LOOP
 
-         SELECT row_count;
+	 SELECT row_count;
 
          IF row_count=0 THEN
 	    DELETE FROM order_item;
+	    DELETE FROM purchesd_log WHERE point=0;
             LEAVE simple_loop;
          END IF;
 
-	 SELECT purchased_states INTO states FROM order_item WHERE order_id=first_id ;
-
-	 IF states=1 THEN
 	 SELECT order_id INTO orderId FROM order_item WHERE order_id=first_id;
 	 SELECT cust_id INTO customerId FROM order_item WHERE order_id=first_id;
 	 SELECT order_qunt INTO orderQunty FROM order_item WHERE order_id=first_id;
-	 SELECT total INTO Total FROM order_item WHERE order_id=first_id;
+	 SELECT total INTO Tot FROM order_item WHERE order_id=first_id;
+	 SELECT purchased_states INTO poi FROM order_item WHERE order_id=first_id;
 
-	 INSERT INTO purchesd_log(custid,oderid,qunty,total) VALUES(customerId,orderId,orderQunty,Total);
-	 END IF;
+	 INSERT INTO purchesd_log(custid,oderid,qunty,total,point) VALUES(customerId,orderId,orderQunty,Tot,poi);
 
 	 SET row_count=row_count-1;
          SET first_id=first_id+1;
 
-  	 END LOOP simple_loop;
+	 END LOOP simple_loop;
+
 
 
 END //
 DELIMITER ;
+
 
 
 DROP EVENT move_order_details;
