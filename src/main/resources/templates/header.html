@@ -1,4 +1,4 @@
-<div th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
     <!-- PRE LOADER -->
     <section class="preloader">
         <div class="spinner">
@@ -26,7 +26,6 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-nav-first">
                     <li><a th:href="@{/home}" class="smoothScroll">Home</a></li>
-                    <li><a href="#about" class="smoothScroll">About</a></li>
                     <li><a href="#team" class="smoothScroll">Chef</a></li>
                     <li><a href="#menu" class="smoothScroll">Normal Foods</a></li>
                     <li><a href="#contact" class="smoothScroll">Contact</a></li>
@@ -39,7 +38,7 @@
 
                 <div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Call Now! <i class="fa fa-phone"></i> 010 020 0340</a></li>
+                        <li><a href="#"><b sec:authentication = "name"></b></a></li>
                         <a th:href="@{/ordered}" class="section-btn">Check Ordered Foods !</a>
                     </ul>
                 </div>

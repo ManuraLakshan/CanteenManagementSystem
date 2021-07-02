@@ -16,7 +16,7 @@ public class InventoryService {
     //Display every normal items
     public  Iterable<Inventry> getAllitems()
     {
-        return InRepo.findAll();
+        return InRepo.findOtherFoods();
     }
 
     //Filter normal items

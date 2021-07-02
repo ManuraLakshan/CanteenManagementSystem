@@ -12,14 +12,13 @@ import java.util.List;
 public interface InventryRepositary extends CrudRepository<Inventry, Integer> {
 
     //Filter items
-    @Query(value = "SELECT * from Inventry i WHERE i.cat_id=4 and i.name like %:keyword%",nativeQuery = true)
+    @Query(value = "SELECT * from Inventry i WHERE i.cat_id=4  and i.name like %:keyword%",nativeQuery = true)
     List<Inventry> findByKeyword(@Param("keyword") String keyword);
 
     //Select main category
     @Query(value = "SELECT * from Inventry i WHERE i.cat_id = :id ",nativeQuery = true)
     List<Inventry> findMainCate(@Param("id") Integer id);
 
-
-
-
+    @Query(value = "SELECT * FROM Inventry i WHERE i.cat_id=4 ",nativeQuery = true)
+    Iterable<Inventry> findOtherFoods();
 }
