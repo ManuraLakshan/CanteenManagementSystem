@@ -1,5 +1,6 @@
 package com.canteen.Fot;
 
+import com.canteen.Fot.Category;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
