@@ -31,6 +31,10 @@ public class Order_ItemService {
     public List<OrderItem> getItemIds(String username) {
         return orderRepo.getItemId(username);
     }
+
+    public void updateQuantity(Integer quant, Integer orderId) {
+        orderRepo.updateQuant(quant, orderId);
+    }
 //    public List<OrderedItemProcedure> getCustomer_Id(String para){
 //       return orderRepo.display_orderItems(para);
 //    }

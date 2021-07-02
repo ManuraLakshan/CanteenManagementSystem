@@ -1,6 +1,7 @@
 package com.canteen.Fot.controller;
 
 import com.canteen.Fot.OrderItem;
+import com.canteen.Fot.entity.Ordercart;
 import com.canteen.Fot.repository.OrderCartRepo;
 import com.canteen.Fot.service.CustomUserDetails;
 import com.canteen.Fot.service.InventoryService;
@@ -42,13 +43,22 @@ public class Order_ItemController {
     @GetMapping("/ordered")
     public String orderedItems(Model model, @AuthenticationPrincipal CustomUserDetails UserDetails ){
 
+        if(UserDetails != null) {
+
+            model.addAttribute("orderedList", cartRepo.findAll(UserDetails.getUsername()));
+            return "oderList" ;
+        }else{
+            return "redirect:/login";
+        }
 
 
+    }
 
-       model.addAttribute("orderedList",cartRepo.findAll(UserDetails.getUsername()));
+    @PostMapping("/addQuantity")
+    public String updateQuantity(@RequestParam(value = "quantity" ) Integer quantity, @RequestParam(value = "orderId" ) Integer orderId ){
+        orderService.updateQuantity(quantity, orderId);
+        return "redirect:/ordered";
 
-
-        return "oderList" ;
     }
 
 

@@ -12,6 +12,15 @@ public class Ordercart {
     private String discription;
     private  Integer unit_price;
 
+    public Integer getOrder_qunt() {
+        return order_qunt;
+    }
+
+    public void setOrder_qunt(Integer order_qunt) {
+        this.order_qunt = order_qunt;
+    }
+
+    private Integer order_qunt;
     public int getOrder_id() {
         return order_id;
     }

@@ -1,9 +1,7 @@
 package com.canteen.Fot;
 
 import groovy.transform.ToString;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 import javax.persistence.*;
 import java.util.List;
