@@ -14,6 +14,15 @@ public class PurchesdLog {
     private String custid;
     private Integer qunty;
     private float total;
+    private Integer point;
+
+    public Integer getPoint() {
+        return point;
+    }
+
+    public void setPoint(Integer point) {
+        this.point = point;
+    }
 
     public Integer getId() {
         return id;
