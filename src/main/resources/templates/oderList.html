@@ -62,7 +62,7 @@
                         </form>
                     </td>
                     <td th:text="${ordered.getUnit_price()*ordered.getOrder_qunt()}"></td>
-                    <td><a class="btn btn-success" href="">Buy</a>
+                    <td><a class="btn btn-success" th:href="@{/sendEmail/(items=${ordered.discription},Prices=${ordered.unit_price*ordered.order_qunt})}">Buy</a>
                         <a class="btn btn-danger" href="">Delete</a></td>
 
                 </tr>

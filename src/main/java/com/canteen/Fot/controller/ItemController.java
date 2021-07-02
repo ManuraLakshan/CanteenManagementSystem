@@ -18,7 +18,7 @@ public class ItemController {
     private InventoryService InvenService;
     @GetMapping("/home")
     public String goHome(){
-        return "index";
+        return "redirect:/";
     }
 
     @GetMapping("/")

@@ -4,6 +4,7 @@ import com.canteen.Fot.OrderItem;
 import com.canteen.Fot.entity.Ordercart;
 import com.canteen.Fot.repository.OrderCartRepo;
 import com.canteen.Fot.service.CustomUserDetails;
+import com.canteen.Fot.service.EmailServer;
 import com.canteen.Fot.service.InventoryService;
 import com.canteen.Fot.service.Order_ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class Order_ItemController {
     private Order_ItemService orderService;
     @Autowired
     private OrderCartRepo cartRepo;
+    @Autowired
+    private EmailServer emailServer;
 
 
 
@@ -58,6 +61,14 @@ public class Order_ItemController {
     public String updateQuantity(@RequestParam(value = "quantity" ) Integer quantity, @RequestParam(value = "orderId" ) Integer orderId ){
         orderService.updateQuantity(quantity, orderId);
         return "redirect:/ordered";
+
+    }
+
+    @RequestMapping(value="/sendEmail")
+    public String sendEmail(@AuthenticationPrincipal CustomUserDetails UserDetails, @RequestParam(value = "items") String items, @RequestParam(value = "Prices") Integer Prices){
+
+        emailServer.sendSimpleEmail(UserDetails.getUsername(),items+""+Prices,"Invoice ");
+        return "redirect:/home";
 
     }
 
