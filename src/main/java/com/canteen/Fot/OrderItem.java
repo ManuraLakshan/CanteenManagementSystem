@@ -1,9 +1,12 @@
 package com.canteen.Fot;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import groovy.transform.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class OrderItem {
@@ -15,6 +18,7 @@ public class OrderItem {
     private Integer order_qunt;
     private float total;
     private  Integer purchased_states;
+
 
     public Integer getPurchased_states() {
         return purchased_states;

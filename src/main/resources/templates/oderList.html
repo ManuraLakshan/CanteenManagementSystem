@@ -39,10 +39,12 @@
             <tr>
                 <th>Food Name</th>
                 <th>Order Quantity</th>
+                <th>Price</th>
                 <th>Action</th>
             </tr>
             <tr th:each="ordered : ${orderedList}">
-                <td th:text="${ordered.}"></td>
+                <td th:text="${ordered.getDiscription()}"></td>
+                <td></td>
                 <td></td>
                 <td></td>
             </tr>

@@ -20,4 +20,6 @@ public interface InventryRepositary extends CrudRepository<Inventry, Integer> {
     List<Inventry> findMainCate(@Param("id") Integer id);
 
 
+
+
 }

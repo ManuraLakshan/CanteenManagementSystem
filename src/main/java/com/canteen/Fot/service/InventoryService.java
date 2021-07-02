@@ -29,5 +29,6 @@ public class InventoryService {
     }
 
 
-
+    public void getItemNameAndPrice() {
+    }
 }

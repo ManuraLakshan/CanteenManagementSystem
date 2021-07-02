@@ -55,7 +55,11 @@
 			<artifactId>annotations</artifactId>
 			<version>16.0.2</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
 		<!--=================================================-->
 		<!--Sujan - I put this new dependency for our web security -->
 		<dependency>

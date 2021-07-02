@@ -16,6 +16,10 @@ import java.util.List;
 public class ItemController {
     @Autowired
     private InventoryService InvenService;
+    @GetMapping("/home")
+    public String goHome(){
+        return "index";
+    }
 
     @GetMapping("/")
     public String getAllInventory(Model model, String keyword)
@@ -39,6 +43,7 @@ public class ItemController {
         return "mainFoodPage";
 
     }
+
 
 
 

@@ -60,9 +60,9 @@ http://www.templatemo.com/tm-515-eatery
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
-                         <li><a href="#home" class="smoothScroll">Home</a></li>
+                         <li><a th:href="@{/home}" class="smoothScroll">Home</a></li>
                          <li><a href="#about" class="smoothScroll">About</a></li>
-                         <li><a href="#team" class="smoothScroll">Chef</a></li>
+                         <li><a href="#team" class="smoothScroll">Main Foods</a></li>
                          <li><a href="#menu" class="smoothScroll">Normal Foods</a></li>
                          <li><a href="#contact" class="smoothScroll">Contact</a></li>
 
@@ -74,7 +74,7 @@ http://www.templatemo.com/tm-515-eatery
 
                          <div>
                          <ul class="nav navbar-nav navbar-right">
-                              <li><b sec:authentication = "name"></b></li>
+                              <li> <a href="#"><b sec:authentication = "name"></b></a></li>
                               <a href="#footer" class="section-btn">Reserve a table</a>
                          </ul>
                     </div>
