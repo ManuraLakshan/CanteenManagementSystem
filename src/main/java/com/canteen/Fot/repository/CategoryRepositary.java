@@ -1,4 +1,4 @@
-package com.canteen.Fot;
+package com.canteen.Fot.repository;
 
 import com.canteen.Fot.Category;
 import org.springframework.data.jpa.repository.Query;

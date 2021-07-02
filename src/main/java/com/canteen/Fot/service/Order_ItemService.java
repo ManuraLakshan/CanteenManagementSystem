@@ -1,8 +1,7 @@
 package com.canteen.Fot.service;
 
 
-import com.canteen.Fot.InventryRepositary;
-import com.canteen.Fot.OderItemRepositary;
+import com.canteen.Fot.repository.OderItemRepositary;
 import com.canteen.Fot.OrderItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

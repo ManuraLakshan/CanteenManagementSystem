@@ -1,5 +1,6 @@
-package com.canteen.Fot;
+package com.canteen.Fot.repository;
 
+import com.canteen.Fot.Customer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
