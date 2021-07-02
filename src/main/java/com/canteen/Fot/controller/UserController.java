@@ -1,7 +1,9 @@
 package com.canteen.Fot.controller;
 
+import com.canteen.Fot.entity.Supplier;
 import com.canteen.Fot.entity.User;
 import com.canteen.Fot.repository.UserRepository;
+import com.canteen.Fot.service.SupplierServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.core.Authentication;
@@ -55,26 +57,5 @@ public class UserController {
     }
 
 
-    /*public static Long getCurrentUserId() {
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        Authentication authentication = securityContext.getAuthentication();
-        String id = null;
-        if (authentication != null)
-            if (authentication.getPrincipal() instanceof UserDetails)
-                id = ((UserDetails) authentication.getPrincipal()).getUsername();
-            else if (authentication.getPrincipal() instanceof String)
-                id = (String) authentication.getPrincipal();
-        try {
-            return Long.valueOf(id != null ? id : "1"); //anonymoususer
-        } catch (NumberFormatException e) {
-            return 1L;
-        }
-    }
-
-    @GetMapping("/ids")
-    String uid(){
-        String id = getCurrentUserId().toString();
-        return id;
-    }*/
 
 }

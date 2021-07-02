@@ -1,8 +1,11 @@
 package com.canteen.Fot.repository;
 
+import com.canteen.Fot.CanteenOwner;
 import com.canteen.Fot.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 public interface UserRepository extends JpaRepository<User,Long> {
     //method to find user by email
@@ -11,4 +14,8 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     /*@Query("SELECT a FROM User a WHERE a.email= ?1 and a.type='admin'")
     User findAdmin(String email);*/
+
+    @Repository
+    interface CanteenOwnerRepositary extends CrudRepository<CanteenOwner, Integer> {
+    }
 }
