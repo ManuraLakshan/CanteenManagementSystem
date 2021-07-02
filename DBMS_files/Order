@@ -1,6 +1,6 @@
 
 
-INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('TG2017255',1,2,112.34,0);
+INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('TG2017255',1,2,112.34,1);
 INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('TG2017254',1,2,112.34,0);
 INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('TG2017256',1,2,112.34,0);
 INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES('TG2017259',1,2,112.34,0);
