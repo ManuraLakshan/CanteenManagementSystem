@@ -28,20 +28,17 @@ BEGIN
 	DECLARE first_id int;
 	DECLARE row_count int;
 
-
-
 	SELECT COUNT(*) INTO row_count FROM order_item ;
 	SELECT order_id INTO first_id FROM order_item LIMIT 1;
 
 	 simple_loop: LOOP
-
 	 SELECT row_count;
 
-         IF row_count=0 THEN
+        IF row_count=0 THEN
 	    DELETE FROM order_item;
 	    DELETE FROM purchesd_log WHERE point=0;
             LEAVE simple_loop;
-         END IF;
+        END IF;
 
 	 SELECT order_id INTO orderId FROM order_item WHERE order_id=first_id;
 	 SELECT cust_id INTO customerId FROM order_item WHERE order_id=first_id;
@@ -52,12 +49,9 @@ BEGIN
 	 INSERT INTO purchesd_log(custid,oderid,qunty,total,point) VALUES(customerId,orderId,orderQunty,Tot,poi);
 
 	 SET row_count=row_count-1;
-         SET first_id=first_id+1;
+     SET first_id=first_id+1;
 
 	 END LOOP simple_loop;
-
-
-
 END //
 DELIMITER ;
 
