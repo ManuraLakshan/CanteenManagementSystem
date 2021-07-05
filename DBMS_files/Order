@@ -61,3 +61,19 @@ DROP EVENT move_order_details;
 select * from purchesd_log;
 select * from order_item;
 UPDATE order_item SET purchased_states=1 WHERE order_id = 14;
+
+******************************Calculate revenue*************************************
+DELIMITER //
+CREATE EVENT revenue_genarate
+ON SCHEDULE EVERY 10 SECOND
+STARTS CURRENT_TIMESTAMP
+ON COMPLETION PRESERVE
+DO
+BEGIN
+	DECLARE dailyRevenue float;
+	SELECT SUM(total) INTO dailyRevenue FROM order_item WHERE purchased_states=1;
+
+	INSERT INTO revenue(date,revenue)VALUES(CURRENT_DATE,dailyRevenue);
+END //
+DELIMITER ;
+
