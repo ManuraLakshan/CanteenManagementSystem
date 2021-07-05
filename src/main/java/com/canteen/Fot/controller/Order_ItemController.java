@@ -49,6 +49,7 @@ public class Order_ItemController {
         if(UserDetails != null) {
 
             model.addAttribute("orderedList", cartRepo.findAll(UserDetails.getUsername()));
+            model.addAttribute("getTotal",cartRepo.cartTotalPrice(UserDetails.getUsername()));
             return "oderList" ;
         }else{
             return "redirect:/login";
@@ -71,6 +72,25 @@ public class Order_ItemController {
         return "redirect:/home";
 
     }
+    @RequestMapping(value = "addToInvoice")
+    public String addToInvoice(@AuthenticationPrincipal CustomUserDetails UserDetails, @RequestParam(value = "items") Integer orderId, @RequestParam("quentity") Integer quentity,@RequestParam("itemId") Integer itemId ){
+        orderService.addToInvoice(orderId);
+        orderService.quantityChange(quentity,itemId,UserDetails.getUsername());
+        return "redirect:/ordered";
+    }
+    @RequestMapping(value = "addAllToInvoice")
+    public String addAllToInvoice(@AuthenticationPrincipal CustomUserDetails UserDetails,
+                                  @RequestParam("quentity") Integer quentity,
+                                  @RequestParam("itemId") Integer itemId){
+        orderService.addAllToInvoice(UserDetails.getUsername());
+        orderService.quantityChange(quentity,itemId,UserDetails.getUsername());
+        return "redirect:/ordered";
+    }
+//    @GetMapping(value = "totalPrice")
+//    public String cartTotalPrice(){
+//        return "redirect:/ordered"
+//    }
+
 
 
 

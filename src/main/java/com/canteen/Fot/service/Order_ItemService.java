@@ -35,6 +35,18 @@ public class Order_ItemService {
     public void updateQuantity(Integer quant, Integer orderId) {
         orderRepo.updateQuant(quant, orderId);
     }
+
+    public void addToInvoice(Integer orderId) {
+         orderRepo.invoiceupdate(orderId);
+    }
+
+    public void addAllToInvoice(String username) {
+        orderRepo.allInvoiceupdate(username);
+    }
+
+    public void quantityChange(Integer quentity, Integer itemId, String username) {
+        orderRepo.quantityChangingFunction(quentity,itemId,username);
+    }
 //    public List<OrderedItemProcedure> getCustomer_Id(String para){
 //       return orderRepo.display_orderItems(para);
 //    }

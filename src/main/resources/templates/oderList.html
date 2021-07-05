@@ -41,10 +41,10 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
 
         <center>
-            <table class="text-center table table-sm btn-group mt-0" style="width: 1200px;">
+            <table border="1" class="text-center table table-sm btn-group mt-0" style="margin-left:100px; width: 1200px;">
                 <tr>
 
                     <th>Food Name</th>
@@ -57,18 +57,39 @@
                     <td>
                         <form th:action="@{/addQuantity}" method="post">
                             <input style="color: whitesmoke" th:value="${ordered.getOrder_id()}" type="hidden" th:name="orderId">
-                            <input type="number" th:name="quantity"  th:value="${ordered.getOrder_qunt()}">
+                            <input type="number" min="0" th:name="quantity"  th:value="${ordered.getOrder_qunt()}">
                             <input type="submit" class="btn btn-warning">
                         </form>
                     </td>
                     <td th:text="${ordered.getUnit_price()*ordered.getOrder_qunt()}"></td>
                     <td><a class="btn btn-success" th:href="@{/sendEmail/(items=${ordered.discription},Prices=${ordered.unit_price*ordered.order_qunt})}">Buy</a>
-                        <a class="btn btn-danger" href="">Delete</a></td>
-
+                        <a class="btn btn-danger" th:href="@{/addToInvoice/(items=${ordered.getOrder_id()},quentity=${ordered.order_qunt},itemId=${ordered.item_id})}">Purchase</a></td>
                 </tr>
-
+                <tr>
+                    <td></td>
+                    <td class="text-right align-middle">Total :</td>
+                    <td><h1 class="font-weight-bold" th:each="getTota:${getTotal}" th:text="${getTota}"></h1></td>
+                    <td><br><a  class="btn btn-success"th:each="ordered : ${orderedList}" th:href="@{/addAllToInvoice/(quentity=${ordered.order_qunt},itemId=${ordered.item_id},getTotal=${getTotal})}">Purchase All Foods</a></td>
+                </tr>
             </table>
         </center>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-header">
+
+                </div>
+                <div class="card-body">
+                    <div class="card-title">
+
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-success" herf=""></a>
+                </div>
+            </div>
+        </div>
     </div>
 <!-- web page footer -->
 

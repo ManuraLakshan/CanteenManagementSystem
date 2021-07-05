@@ -20,7 +20,21 @@ public interface OderItemRepositary extends CrudRepository<OrderItem, Integer> {
 
 
     @Modifying
-
+    //chage ordered quentity of items
     @Query(value = "UPDATE order_item set order_qunt=:quant WHERE order_id=:orderId ",nativeQuery = true)
     void updateQuant(Integer quant, Integer orderId);
+
+    @Modifying
+    //update order id sent to invoice(buy)
+    @Query(value = "UPDATE order_item set purchased_states=1 WHERE purchased_states=0 and order_id=:orderId",nativeQuery = true)
+    void invoiceupdate(Integer orderId);
+
+
+    @Modifying
+    //update all orders sent to invoice(buy)
+    @Query(value = "UPDATE order_item set purchased_states=1 WHERE purchased_states=0 and cust_id=:username",nativeQuery = true)
+    void allInvoiceupdate(String username);
+
+    @Query(value = "SELECT decreaseQuantity(:quentity,:itemId,:username)",nativeQuery = true)
+    void quantityChangingFunction(Integer quentity, Integer itemId, String username);
 }
