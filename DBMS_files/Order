@@ -77,3 +77,57 @@ BEGIN
 END //
 DELIMITER ;
 
+
+*******************************Go Invoice***********************
+DELIMITER //
+CREATE TRIGGER TR_after_purchased
+AFTER UPDATE
+ON order_item FOR EACH ROW
+BEGIN
+
+	DECLARE productName varchar(255);
+	DECLARE row_count int;
+	DECLARE first_id int;
+	DECLARE itemId int;
+	DECLARE unitPrice float;
+	DECLARE customerId varchar(255);
+	DECLARE customerName varchar(255);
+	DECLARE Quntity float;
+	DECLARE SubTotal float;
+
+
+	SELECT COUNT(*) INTO row_count FROM order_item WHERE order_id NOT IN (SELECT orderid FROM invoice);
+	SELECT order_id INTO first_id FROM order_item WHERE order_id NOT IN (SELECT orderid FROM invoice) LIMIT 1;
+
+	simple_loop: LOOP
+		IF row_count=0 THEN
+           	LEAVE simple_loop;
+        	END IF;
+
+		SELECT cust_id INTO customerId FROM order_item WHERE order_id=first_id;
+		SELECT name INTO customerName FROM customer WHERE cust_id = customerId;
+		SELECT item_id INTO itemId FROM order_item WHERE order_id=first_id;
+		SELECT name INTO productName FROM inventry WHERE inv_id=itemId;
+		SELECT unit_price INTO unitPrice FROM inventry WHERE inv_id=itemId;
+		SELECT order_qunt INTO Quntity FROM order_item WHERE order_id=first_id;
+
+		SET SubTotal = unitPrice * Quntity;
+
+		INSERT INTO invoice(customerid,customer_name,orderid,itemname,unitprice,sub_total) VALUES(customerId,customerName,first_id,productName,unitPrice,SubTotal);
+
+
+		SET row_count=row_count-1;
+         	SET first_id=first_id+1;
+
+	END LOOP simple_loop;
+
+END //
+DELIMITER ;
+
+
+UPDATE order_item SET  purchased_states=1 WHERE order_id=113;
+ update order_item set  purchased_states=1 where order_id=110;
+
+DROP TRIGGER TR_after_purchased;
+
+

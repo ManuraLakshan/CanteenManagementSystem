@@ -8,32 +8,61 @@ import javax.persistence.Id;
 @Entity
 public class Invoice {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer invoice_no;
-    private String cust_id;
-    private Integer order_id;
+    private int orderid;
+    private String customerid;
+    private String customer_name;
+    private String itemname;
+    private float unitprice;
+    private float sub_total;
 
-    public Integer getInvoice_no() {
-        return invoice_no;
+
+    public int getOrderid() {
+        return orderid;
     }
 
-    public void setInvoice_no(Integer invoice_no) {
-        this.invoice_no = invoice_no;
+    public void setOrderid(int orderid) {
+        this.orderid = orderid;
     }
 
-    public String getCust_id() {
-        return cust_id;
+    public String getCustomerid() {
+        return customerid;
     }
 
-    public void setCust_id(String cust_id) {
-        this.cust_id = cust_id;
+    public void setCustomerid(String customerid) {
+        this.customerid = customerid;
     }
 
-    public Integer getOrder_id() {
-        return order_id;
+    public String getCustomer_name() {
+        return customer_name;
     }
 
-    public void setOrder_id(Integer order_id) {
-        this.order_id = order_id;
+    public void setCustomer_name(String customer_name) {
+        this.customer_name = customer_name;
     }
+
+    public String getItemname() {
+        return itemname;
+    }
+
+    public void setItemname(String itemname) {
+        this.itemname = itemname;
+    }
+
+    public float getUnitprice() {
+        return unitprice;
+    }
+
+    public void setUnitprice(float unitprice) {
+        this.unitprice = unitprice;
+    }
+
+    public float getSub_total() {
+        return sub_total;
+    }
+
+    public void setSub_total(float sub_total) {
+        this.sub_total = sub_total;
+    }
+
+
 }
