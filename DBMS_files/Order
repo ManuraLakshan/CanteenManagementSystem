@@ -10,11 +10,12 @@ INSERT INTO order_item(cust_id,item_id,order_qunt,total,purchased_states) VALUES
 
 
 
-
+SET GLOBAL event_scheduler = ON;
+SHOW PROCESSLIST;
 ***************************************Move oder 12.AM*******************************
 DELIMITER //
 CREATE EVENT move_order_details
-ON SCHEDULE EVERY 10 SECOND
+ON SCHEDULE EVERY 20 SECOND
 STARTS CURRENT_TIMESTAMP
 ON COMPLETION PRESERVE
 DO
@@ -65,7 +66,7 @@ UPDATE order_item SET purchased_states=1 WHERE order_id = 14;
 ******************************Calculate revenue*************************************
 DELIMITER //
 CREATE EVENT revenue_genarate
-ON SCHEDULE EVERY 10 SECOND
+ON SCHEDULE EVERY 20 SECOND
 STARTS CURRENT_TIMESTAMP
 ON COMPLETION PRESERVE
 DO
@@ -96,7 +97,7 @@ BEGIN
 	DECLARE SubTotal float;
 
 
-	SELECT COUNT(*) INTO row_count FROM order_item WHERE order_id NOT IN (SELECT orderid FROM invoice) AND  purchased_states=1;;
+	SELECT COUNT(*) INTO row_count FROM order_item WHERE order_id NOT IN (SELECT orderid FROM invoice) AND  purchased_states=1;
 	SELECT order_id INTO first_id FROM order_item WHERE order_id NOT IN (SELECT orderid FROM invoice) AND  purchased_states=1 LIMIT 1;
 
 	simple_loop: LOOP
