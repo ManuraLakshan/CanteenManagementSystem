@@ -1,7 +1,9 @@
 package com.canteen.Fot.service;
 
 import com.canteen.Fot.Inventry;
+import com.canteen.Fot.entity.User;
 import com.canteen.Fot.repository.InventryRepositary;
+import com.canteen.Fot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +15,8 @@ import java.util.List;
 public class InventoryService {
     @Autowired
     private InventryRepositary InRepo;
+    @Autowired
+    private UserRepository userRpo;
     //Display every normal items
     public  Iterable<Inventry> getAllitems()
     {
@@ -30,5 +34,9 @@ public class InventoryService {
 
 
     public void getItemNameAndPrice() {
+    }
+
+    public List<User> findUserType(String username) {
+        return userRpo.findUserType(username);
     }
 }

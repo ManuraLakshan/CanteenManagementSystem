@@ -44,7 +44,8 @@
     <div class="container">
 
         <center>
-            <table border="1" class="text-center table table-sm btn-group mt-0" style="margin-left:100px; width: 1200px;">
+
+            <table  class="text-center table table-sm btn-group mt-0" style="margin-left:100px; width: 1200px;">
                 <tr>
 
                     <th>Food Name</th>
@@ -52,43 +53,69 @@
                     <th>Price</th>
                     <th>Action</th>
                 </tr>
+
+            <form th:action="@{/addAllToInvoice}" method="post">
                 <tr class="font-weight-bold text-success " th:each="ordered : ${orderedList}">
-                    <td th:text="${ordered.getDiscription()}"></td>
                     <td>
-                        <form th:action="@{/addQuantity}" method="post">
-                            <input style="color: whitesmoke" th:value="${ordered.getOrder_id()}" type="hidden" th:name="orderId">
-                            <input type="number" min="0" th:name="quantity"  th:value="${ordered.getOrder_qunt()}">
-                            <input type="submit" class="btn btn-warning">
-                        </form>
+                        <input type="hidden" th:name="itemName" th:value="${ordered.getDiscription()+ordered.getUnit_price()*ordered.getOrder_qunt()}">
+                            <h4  th:text="${ordered.getDiscription()}"></h4>
                     </td>
-                    <td th:text="${ordered.getUnit_price()*ordered.getOrder_qunt()}"></td>
-                    <td><a class="btn btn-success" th:href="@{/sendEmail/(items=${ordered.discription},Prices=${ordered.unit_price*ordered.order_qunt})}">Buy</a>
-                        <a class="btn btn-danger" th:href="@{/addToInvoice/(items=${ordered.getOrder_id()},quentity=${ordered.order_qunt},itemId=${ordered.item_id})}">Purchase</a></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td class="text-right align-middle">Total :</td>
-                    <td><h1 class="font-weight-bold" th:each="getTota:${getTotal}" th:text="${getTota}"></h1></td>
-                    <td><br><a  class="btn btn-success"th:each="ordered : ${orderedList}" th:href="@{/addAllToInvoice/(quentity=${ordered.order_qunt},itemId=${ordered.item_id},getTotal=${getTotal})}">Purchase All Foods</a></td>
-                </tr>
+                    <td>
+                            <input min="0" type="hidden" th:name="quantity"  th:value="${ordered.getOrder_qunt()}">
+                            <h4 th:text="${ordered.getOrder_qunt()}"></h4>
+                    </td>
+                    <td>
+                            <input type="hidden" th:name="itemPrice" th:value="${ordered.getUnit_price()*ordered.getOrder_qunt()}">
+                            <h4 th:text="${ordered.getUnit_price()*ordered.getOrder_qunt()}"></h4>
+                    </td>
+                    <td>
+                            <a class="btn btn-success" th:href="@{/sendEmail/(items=${ordered.discription},Prices=${ordered.unit_price*ordered.order_qunt})}">Buy</a>
+                            <a class="btn btn-danger" th:href="@{/addToInvoice/(items=${ordered.getOrder_id()},quentity=${ordered.order_qunt},itemId=${ordered.item_id})}">Purchase</a>
+                    </td>
+                        <input type="hidden" th:name="itemId" th:value="${ordered.item_id}">
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="text-right align-middle">Total :</td>
+                        <td th:each="getTota:${getTotal}">
+                            <input type="hidden" th:name="getTota" th:value="${getTota}">
+                            <h1 class="font-weight-bold"  th:text="${getTota}"></h1>
+                        </td>
+
+                        <td><br><input type="submit"class="btn btn-success" value="Purchase All Foods"></td>
+            </form>
+                    </tr>
+                    <tr>
+                        <th>Chage Qty Names</th>
+                        <th>Change Order Quantities</th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="ordered : ${orderedList}">
+                        <td th:text="${ordered.getDiscription()}">
+
+                        </td>
+                        <td>
+                            <table>
+                            <form  th:action="@{/addQuantity}" method="post">
+                                <input style="color: whitesmoke" th:value="${ordered.getOrder_id()}" type="hidden" th:name="orderId">
+                                <input type="number" min="0" th:name="quantity"  th:value="${ordered.getOrder_qunt()}">
+                                <input type="submit" class="btn btn-warning">
+                            </form>
+                            </table>
+                        </td>
+
+                    </tr>
             </table>
         </center>
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="card">
-                <div class="card-header">
-
-                </div>
-                <div class="card-body">
-                    <div class="card-title">
-
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a class="btn btn-success" herf=""></a>
-                </div>
-            </div>
+            <table>
+                <tr >
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
     </div>
 <!-- web page footer -->

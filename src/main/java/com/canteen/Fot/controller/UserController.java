@@ -3,10 +3,12 @@ package com.canteen.Fot.controller;
 import com.canteen.Fot.entity.Supplier;
 import com.canteen.Fot.entity.User;
 import com.canteen.Fot.repository.UserRepository;
+import com.canteen.Fot.service.CustomUserDetails;
 import com.canteen.Fot.service.SupplierServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,7 +39,8 @@ public class UserController {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        user.setType("customer");
+        user.setType(user.getType());
+        System.out.println(user.getType());
         urepo.save(user);
         return "register_success";
     }

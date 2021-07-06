@@ -67,6 +67,16 @@
                                    minlength="2" maxlength="20"/>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">User Type</label>
+                        <div class="col-8">
+                            <select th:field="*{Type}">
+                                <option th:value="'Staff'" th:text="Staff"></option>
+                                <option th:value="'Stu'" th:text="Student"></option>
+                            </select>
+                        </div>
+
+                    </div>
 
                     <!-- ============================== -->
                     <div>
