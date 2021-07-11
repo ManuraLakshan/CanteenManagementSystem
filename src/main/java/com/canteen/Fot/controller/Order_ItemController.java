@@ -50,7 +50,7 @@ public class Order_ItemController {
 
             model.addAttribute("orderedList", cartRepo.findAll(UserDetails.getUsername()));
             model.addAttribute("getTotal",cartRepo.cartTotalPrice(UserDetails.getUsername()));
-            model.addAttribute("getBroughts",cartRepo.getBroughts(UserDetails.getUsername()));
+           // model.addAttribute("getBroughts",cartRepo.getBroughts(UserDetails.getUsername()));
 
             return "oderList" ;
         }else{
